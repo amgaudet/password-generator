@@ -18,35 +18,35 @@ function generatePassword() {
   var passLib = "";
   var passLength = parseInt(prompt("Choose password length (8-128 characters)"));
 
-  if (passLength >= 8 && passLength <= 128) {
-    console.log(passLength);
-  } else {
+  if (passLength < 8 || passLength > 128) {
     alert("Invalid input. Please enter a number between 8 and 128.");
     generatePassword();
   }
 
-  var lowerCase = confirm("Would you like to include Lower Case Letters?");
-  var upperCase = confirm("Would you like to include Upper Case Letters?");
-  var num = confirm("Would you like to include Numbers?");
-  var specChar = confirm("Would you like to include Special Characters?");
+  
+    var lowerCase = confirm("Would you like to include Lower Case Letters?");
+    var upperCase = confirm("Would you like to include Upper Case Letters?");
+    var num = confirm("Would you like to include Numbers?");
+    var specialChar = confirm("Would you like to include Special Characters?");
 
-  if (!lowerCase && !upperCase && !num && !specChar) {
-    alert("Please choose at least one character type for your password");
-    generatePassword();
-  }
-
-  if (lowerCase) {
-    passLib += lowerLib;
-  }
-  if (upperCase) {
-    passLib += upperLib;
-  }
-  if (num) {
-    passLib += numbers;
-  }
-  if (specChar) {
-    passLib += specialChars;
-  }
+    if (!lowerCase && !upperCase && !num && !specChar) {
+      alert("Please choose at least one character type for your password");
+      generatePassword();
+    }
+  
+    if (lowerCase) {
+      passLib += lowerLib;
+    }
+    if (upperCase) {
+      passLib += upperLib;
+    }
+    if (num) {
+      passLib += numbers;
+    }
+    if (specialChar) {
+      passLib += specialChars;
+    }
+  
 
   for (var i = 0; i < passLength; i++) {
     var placeHold = Math.floor(Math.random() * passLib.length);
