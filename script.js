@@ -11,13 +11,17 @@ var numbers = "0123456789";
 
 // Write password to the #password input
 function writePassword() {
-  var newPassword = "";
-  var passLib = "";
-  // var password = generatePassword();
+  var password = generatePassword();
   var passwordText = document.querySelector("#password");
+  passwordText.textContent = password;
+}
 
+
+function generatePassword(){
+    var newPassword = "";
+    var passLib = "";
   //password length prompt 8-128 characters
-  var passLength = parseInt(prompt("Choose password length (8-128 characters)"));
+    var passLength = parseInt(prompt("Choose password length (8-128 characters)"));
 
   //check if pw length is between 8 and 128
   if (passLength >= 8 && passLength <= 128) {
@@ -65,7 +69,6 @@ function writePassword() {
   }
 
   return newPassword;
-
 }
 
 
